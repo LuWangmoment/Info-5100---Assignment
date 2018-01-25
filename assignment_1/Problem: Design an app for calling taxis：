@@ -1,0 +1,74 @@
+Problem: Design an app for calling taxis：
+
+Objects and Behaviors:
+
+TheAppService:
+	Data: name, Username, code, interface
+	Behaviors: locate, display,sort,search, connect,login,match,,displaylocation, arrive diplayroutine,displayexpense，start,connecttheInternet,authorize,informDriver
+
+
+Passenger:
+	Data:name,location,destination,phoneNumber, emailAddress, 
+	Behaviors: search,login,review,contact,locate,
+
+Driver:
+	Data:Name,customerrate,
+	Behaviors:login,contact,locate,
+Car:
+	Data:carType,carNumber,securityStatus
+	Behaviors:
+Server:
+	Data:ID,name
+	Behaviors:offerhelp,dealwithcomplaint
+CreditCard:
+	Data: Number, Name, Company, Expiry, Security Code
+	Behaviors:
+
+CreditCardCompany:
+	Data:
+	Behaviors: authoritizeTranSaction
+
+OrderingConfirmation::
+	Data:
+	Behaviors:
+
+Passerger Mark
+Driver Maria
+TheAppService Sealu
+Server Peter
+CreditCard Card
+OrderingCorfirmation Response
+
+
+TheAppService.start->click:interface
+if (TheAppService.connecttheInternet is True):
+	Mark.Login->Username,code:authorize
+	if (authorize is true)
+		TheAppService.locate-> Mark:location
+		Mark.destination
+		TheAppService.displayroutine-> location,destination:image of routine
+		TheAppService.search->routine: collection of Drivers
+		TheAppService.match->collection of Drivers: Maria
+		TheAppService.estimate->Maria,Mark,routine:estimatewaitingtime,estimetetotalcost
+		TheAppService.displayroutine:locationofMaria,locationofMark->image,routine
+		if Mark.quit:
+			TheAppService.informDriver
+			TheAppService.displayexpense
+		else:
+			Maria.contact->phoneNumber,Mark:connected
+			Mark.contact
+			TheAppService.recordstart->location:startSignal
+			Loop
+				TheAppService.displayexpense
+				if TheAppService.arrive
+					break
+				end
+			end
+			Passenger.confirmation:expense,date:response
+			CreditCardCompany.authoritizeTranSaction->response:authoritized
+	else
+		Mark.cantusetheApp
+	end
+else:
+	Mark.cantusetheApp
+end

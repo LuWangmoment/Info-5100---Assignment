@@ -1,0 +1,74 @@
+Problem: Program to order a hotel online before a trip:
+
+Objects and Behaviors:
+
+Internet:
+	Data: Priceline, Hotwire, Booking, Airbnb: Group of Websites(Collection of Websites)
+	Behaviors:searchForOrderingHotelWebsites
+
+User:
+	Data:Name,Login information, Phone, Email
+	Behaviors: search, compare, checkout, cancel, askforhelp,haveconfusion,payfortheorder
+
+BookingHotelWebsite:
+	Data:URL, BankAccount, ContactNumber,
+	Behaviors: offerconsulting, search, sort, display, compare, match, confirmbooking
+
+Hotel:
+	Data: Price, Location, Date, RoomType, TrafficSituation,SecurityStatus,Year
+	Behaviors:
+
+CreditCard:
+	Data: Number, Name, Company, Expiry, Security Code
+	Behaviors:
+
+CreditCardCompany:
+	Data:
+	Behaviors: authoritizeTranSaction
+
+BookingConfirmation::
+	Data:
+	Behaviors:
+
+Order a hotel online before a trip:
+	User Lily
+	Internet internet
+	BookingHotelWebsite Priceline
+	Hotel HyattHouse
+	CreditCard card
+	CreditCardCompany visa
+	BookingConfirmatin response
+
+if Internet.isAvailable
+	Lily.searchInInternet -> internet,question: Collection of BookingHotelWebsite
+	Lily.findDesirableWebsiteInFirstPage -> Collection of Websites: websitepageNumber = 1:
+	Loop
+		if Lily.findsNoPages
+			break
+		end
+		Lily.findDesirableWebsiteInAPage-> internet,question, page number: website
+		Priceline = Website;
+		if Priceline is not empty
+			break
+		else:
+			pageNumber = pageNumber + 1
+		end
+	End
+	Priceline = website
+	if Priceline is not empty or Priceline != null
+		Priceline.seaechForHoter -> priceRange,location,daterange,RoomType,TrafficSituation,SecurityStatus,Year: Collection of Hotels
+		Lily.compare
+		if Lily.haveconfution
+			Lily.askforhelp -> Collection of Hotels,needs:Hotel
+		HyattHouse = Hotel
+		if HyattHouse is not empty or HyattHouse != Null
+		Lily.Login->Username,code
+		Lily.payfortheorder-> HyattHouse,name,Email:bookingConfirmation
+		response = bookingConfirmation
+		else
+			Lily.cantBookHotel
+Else
+	Lily.browseInternetAfterAWhileBack
+
+
+

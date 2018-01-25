@@ -1,0 +1,46 @@
+Design a job searching and posting platform:
+employer
+	Data：position,company,duty, contactInformation,Salary
+	Behavior:connect,post,view,login,response
+
+jobseeker
+	Data:resume,photo,name,educationBackground,workingExperience,volunteering experience,selfachievement,publication
+	Behavior:connect,search,view,login,CantUseThePlatform,buildtheaccount,cantpost,response,cantfindjob
+
+platformservice
+	Data:URL,collection of positions,collection of jobseekers
+	Behavior:search,sort,match，inform, display,notify connection
+
+jobseeker Kevin
+employer Linda
+platformservice Huunteer
+
+Kevin.login->Huunter:authorizeOfKevin
+Linda.Login->>Huunter:authorizeOfLinda
+if (authorizeOfKevin is true and authorizeOfLinda is true):
+	Kevin.buildtheaccount -> resume,photo,name,educationBackground,workingExperience,volunteering experience,selfachievement,publication:account
+	Kevin.archive -> Huunter,account:archieve
+	Linda.post an position -> position,company,duty, contactInformation,Salary:upload
+	LOOP
+		Kevin.search ->expectSalary,jobType,Position,Date
+		platformservice.match->Huunter,collection of accounts :connections
+		number = len(connections)
+		if number == 0:
+			break
+		else:
+			Kevin.choosefavorite->groupe of connections:choice
+		end
+		if finalChoice != null:
+			break
+		else
+			pass
+		end	
+	end
+	if choice = null
+		Kevin.cantfindjob
+	Kevin.connect -> Huunteer,Linda,contactInformation,message:response
+	Linda.respond ->Huunteer,Kevin,contactInformationmessage:response
+else
+	Kevin.cantUseThePlatform
+	Linda.cantpost
+end

@@ -1,0 +1,37 @@
+Ordering food in restaurant:
+Restaurant
+	Data:location,name,collection of CurrentCuisine,collection of price, scentence of greeting
+	Behavior: offerTheMenue,record,respond,ask,greeting,timing,askIfOrdering,confirm,placetheorder
+Guests
+	Data:budget,timeOfArrival,number
+	Behavior:order,addchoose,arrive,cancel,calculate,ask,respond,readthemenue
+
+
+Restaurant LittleGarden
+Guests Greens(a family of three)
+
+
+Greens.arrive->LittleGarden,Time of Arrival :greeting
+Loop
+	LittleGarden.askIfOrdering->Greens,scentence:response
+	Greens.respond->scentence,LittleGarden:response
+	if (response is true)
+		break
+	else
+		pass
+end	
+Loop
+	Loop
+		Greens.readthemenue->menue:preferences
+		Greens.ask->LittleGarden,cusine:descriptionOfCuision
+		GReens.addchoose->collectionofcuision:choices
+		LittleGarden.calculate(collection of prices,totalprices)
+		if totalprices > budget
+			break
+		end
+	LittleGarden.confirm->Greens,choices:FinalResponse
+	if FinalResponse 
+		LittleGarden.placetheorder
+	end
+	end
+end
