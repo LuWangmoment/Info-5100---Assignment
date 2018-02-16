@@ -1,3 +1,4 @@
+scores : 10 / 10
 package assignment3;
 
 import java.util.Arrays;
