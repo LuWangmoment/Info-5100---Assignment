@@ -1,3 +1,5 @@
+// total scores: 10 / 10
+
 package gramma;
 import java.util.HashMap;
 public class question2 {
