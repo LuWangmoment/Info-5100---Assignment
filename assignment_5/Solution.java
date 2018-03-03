@@ -1,3 +1,4 @@
+// scores : 1.5 / 2
 // the logic is not work in some cases like: the input "[{}]"
 //this is what I suggest you to do 
 // public class IsValidBrackets {
