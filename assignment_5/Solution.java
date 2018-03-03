@@ -1,3 +1,29 @@
+// the logic is not work in some cases like: the input "[{}]"
+//this is what I suggest you to do 
+// public class IsValidBrackets {
+//     public static boolean isValidBrackets(String s) {
+//         Stack<Character> stack = new Stack<>();
+//         for (int i = 0; i < s.length(); i++) {
+//             char c = s.charAt(i);
+//             if (c == '(') {
+//                 stack.push(')');
+//             } else if (c == '[') {
+//                 stack.push(']');
+//             } else if (c == '{') {
+//                 stack.push('}');
+//             } else if (stack.isEmpty() || stack.peek() != c) {
+//                 return false;
+//             } else {
+//                 stack.pop();
+//             }
+//         }
+//         return stack.isEmpty();
+//     }
+
+//     public static void main(String[] args) {
+//         System.out.println(isValidBrackets("([]){}"));
+//     }
+// }
 package gramma;
 import java.util.HashMap;
 public class Solution {
